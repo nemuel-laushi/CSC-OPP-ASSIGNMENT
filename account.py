@@ -1,6 +1,8 @@
 class Account:
-    def __init__(self):
+    def __init__(self, account_name, account_holder):
         self.balance = 0
+        self.account_number = account_number
+        self.account_holder = account_holder
         print("starting balance: ", self.balance)
     
     def deposit(self, amount):
