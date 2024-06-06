@@ -1,34 +1,29 @@
-class CurrentAccount:
-    def __init__(self, account_number, account_holder):
-        self.account_number = account_number
-        self.account_holder = account_holder
-        self.balance = 0.0
+from account import Account
 
-    def deposit(self, amount):
-        if amount > 0:
-            self.balance += amount
-            print(f"Deposited {amount:.2f}. New balance: {self.balance:.2f}")
-        else:
-            print("Deposit amount must be positive.")
+class CurrentAccount(Account):
+    
+    def __init__(self):
+        super().__init__()
 
-    def withdraw(self, amount):
-        if amount > 0:
-            self.balance -= amount
-            print(f"Withdrew {amount:.2f}. New balance: {self.balance:.2f}")
-        else:
-            print("Withdrawal amount must be positive.")
 
-    def get_balance(self):
-        return self.balance
+        
+currentAccount = CurrentAccount()
 
-    def __str__(self):
-        return f"Account Number: {self.account_number}\nAccount Holder: {self.account_holder}\nBalance: {self.balance:.2f}"
+opt = input('IF YOU WANT TO DEPOSIT INPUT a lower case"d", AND IF YOU WANT TO WITHDRAW INPUT a lower case "w": ')
 
-# Example usage
-if __name__ == "__main__":
-    account = CurrentAccount("12345678", "John Doe")
-    print(account)
-    account.deposit(1000)
-    account.withdraw(200)
-    print(f"Current Balance: {account.get_balance():.2f}")
-    print(account)
+if opt == 'w': 
+
+        amw = float(input('Enter desired  withdrawal amount: '))
+        currentAccount.withdraw(amw)
+    
+        print('AMOUNT MUST BE NUMERIC')
+    
+if opt == 'd':
+    
+        amd = float(input('Enter deposit amount: '))
+           
+    
+
+        currentAccount.deposit(amd)
+    
+        
