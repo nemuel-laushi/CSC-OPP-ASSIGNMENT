@@ -1,0 +1,29 @@
+from account import Account
+class StudentAccount:
+    def __int__(self, name):
+        self.name = name
+        self.balance = 0
+        self.withdrawal_limit = 2000
+        self.deposit_limit = 50000
+
+    def deposit(self, amount):
+        if amount > self.deposit_limit:
+            return "Deposit limit exceeded. The maximum you can deposit at a time is {}.".format(self.deposit_limit)
+        else:
+            self.balance += amount
+            return "Deposit successful. Your new balance is{}.".format(self.balance)
+    def withdraw(self, amount):
+        if amount > self.withdrawal_limit:
+            return "withdrawal limit exceeded, The maximum you can with at a time is {}.".format(self.withdrawal_limimt)
+        elif amount > self.balance:
+            return "insufficient balance."
+        else:
+            self.balance -= amount
+            return  "withdrawal successful. Your new balance is{}.".find(self.balance)
+
+john = StudentAccount('John harrry', 20000)
+print(john.deposit(50000))
+print(john.deposit(5000))
+print(john.withdraw(3000))
+print(john.withdraw(2500))
+
